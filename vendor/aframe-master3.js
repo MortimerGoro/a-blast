@@ -70015,6 +70015,7 @@ module.exports.Component = registerComponent('vr-mode-ui', {
   },
 
   update: function () {
+      setTimeout(this.enterVR, 500);
     var sceneEl = this.el;
 
     if (!this.data.enabled || this.insideLoader || utils.getUrlParameter('ui') === 'false') {
@@ -70295,6 +70296,7 @@ module.exports.Component = registerComponent('sound', {
    * @returns {object} sound
    */
   setupSound: function () {
+    return;
     var el = this.el;
     var sceneEl = el.sceneEl;
 
@@ -72325,11 +72327,11 @@ module.exports = registerElement('a-assets', {
         }
 
         // Wait for <audio>s and <video>s.
-        mediaEls = this.querySelectorAll('audio, video');
+        /*mediaEls = this.querySelectorAll('audio, video');
         for (i = 0; i < mediaEls.length; i++) {
           mediaEl = fixUpMediaElement(mediaEls[i]);
           loaded.push(mediaElementLoaded(mediaEl));
-        }
+        }*/
 
         // Trigger loaded for scene to start rendering.
         Promise.all(loaded).then(bind(this.load, this));
